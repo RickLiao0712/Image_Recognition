@@ -17,7 +17,7 @@ while True:
         video.set(cv2.CAP_PROP_POS_FRAMES, 0)
         continue
     frame = cv2.resize(frame,(540,300))  # 縮小尺寸，加快速度
-    keyName = cv2.waitKey(1)
+    keyName = cv2.waitKey(60)
 
     if keyName == ord('q'):
         break 
