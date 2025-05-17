@@ -31,7 +31,7 @@ while True:
         success, point = tracker.update(frame)   # 追蹤成功後，不斷回傳左上和右下的座標
         if success:
             p1 = [int(point[0]), int(point[1])]
-            p2 = [int(point[0] + point[2]), int(point[1] + point[3])]
+            p2 = [int(point[0] + point[2]), int(point[1] + point[3])] # point = (x, y, w, h)  # 一個矩形區域的位置與大小
             cv2.rectangle(frame, p1, p2, (0,0,255), 3)   # 根據座標，繪製四邊形，框住要追蹤的物件
             # 計算中心點座標
             center_x = int((p1[0] + p2[0]) / 2)
