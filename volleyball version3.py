@@ -46,5 +46,21 @@ while True:
 
     cv2.imshow('Detected Volleyball', frame)
 
+# 分解軌跡點
+height, width = frame.shape[:2]
+x_vals = [p[0] for p in track_points]
+y_vals = [p[1] for p in track_points]
+
+plt.figure(figsize=(8, 6))
+plt.xlim(0, width)
+plt.ylim(height, 0)
+
+plt.plot(x_vals, y_vals, marker='o', linestyle='-', color='b', label='Ball Trajectory')
+plt.gca().invert_yaxis()  # 影像座標 (0,0) 在左上角，所以要反轉 y 軸
+plt.xlabel('X Coordinate')
+plt.ylabel('Y Coordinate')
+plt.title('Volleyball Serve Trajectory')
+plt.legend()
+plt.show()
 video.release()
 cv2.destroyAllWindows()
